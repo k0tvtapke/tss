@@ -1,4 +1,4 @@
-module tss
+module github.com/k0tvtapke/tss
 
 go 1.26
 
