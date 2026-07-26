@@ -40,8 +40,8 @@ type Stats struct {
 }
 
 type TorrentFile struct {
-	path string
-	size int64
+	Path string
+	Size int64
 }
 
 type torrentEntry struct {
