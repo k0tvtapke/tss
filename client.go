@@ -226,8 +226,8 @@ func (sc *StreamingClient) GetFilesInTorrent(infohash torrent.InfoHash) (err err
 
 	for _, torrentFile := range t.torrent.Files() {
 		torrentFiles = append(torrentFiles, TorrentFile{
-			path: torrentFile.Path(),
-			size: torrentFile.Length(),
+			Path: torrentFile.Path(),
+			Size: torrentFile.Length(),
 		})
 	}
 
