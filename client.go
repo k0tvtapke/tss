@@ -31,6 +31,8 @@ type StreamingClientConfig struct {
 
 	StatsUpdateInterval        time.Duration
 	MagnetDataGatheringTimeout time.Duration
+
+	TorrentListenPort int
 }
 
 type Stats struct {
@@ -80,6 +82,9 @@ func NewClient(scConfig StreamingClientConfig) *StreamingClient {
 	config := torrent.NewDefaultClientConfig()
 	config.DefaultStorage = sc.ramStorage
 	config.DataDir = scConfig.DownloadPath
+	if scConfig.TorrentListenPort != 0 {
+		config.ListenPort = scConfig.TorrentListenPort
+	}
 
 	client, err := torrent.NewClient(config)
 	if err != nil {
